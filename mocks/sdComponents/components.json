@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Load Balancer",
+    "description": "Distributes network or application traffic across multiple servers to ensure reliability and performance.",
+    "icon": "🌀"
+  },
+  {
+    "name": "Web Server",
+    "description": "Handles HTTP requests and serves static or dynamic content to users.",
+    "icon": "🌐"
+  },
+  {
+    "name": "Application Server",
+    "description": "Hosts and executes business logic, typically serving client requests from the web server.",
+    "icon": "⚙️"
+  },
+  {
+    "name": "Database",
+    "description": "Stores structured data and supports efficient querying, indexing, and transactions.",
+    "icon": "🗄️"
+  },
+  {
+    "name": "Redis",
+    "description": "An in-memory key-value store used for caching, real-time analytics, and message brokering.",
+    "icon": "🟥"
+  },
+  {
+    "name": "Message Queue",
+    "description": "Decouples services and enables asynchronous communication between components.",
+    "icon": "📬"
+  },
+  {
+    "name": "CDN",
+    "description": "Delivers static content (like images, JS, CSS) from servers close to the user’s location to reduce latency.",
+    "icon": "📡"
+  },
+  {
+    "name": "API Gateway",
+    "description": "Acts as a single entry point for API calls, handling routing, rate limiting, and security.",
+    "icon": "🚪"
+  },
+  {
+    "name": "Authentication Service",
+    "description": "Manages user identities and permissions, often via tokens or OAuth flows.",
+    "icon": "🔐"
+  },
+  {
+    "name": "Monitoring & Logging",
+    "description": "Tracks application performance and logs system behavior for debugging and analysis.",
+    "icon": "📈"
+  }
+]
