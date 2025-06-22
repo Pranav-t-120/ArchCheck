@@ -1,0 +1,90 @@
+{
+  "sidebar": [
+    {
+      "category": "Compute",
+      "components": [
+        { "label": "API Gateway", "type": "compute", "id": "api_gateway" },
+        { "label": "Microservice", "type": "compute", "id": "microservice" },
+        { "label": "Load Balancer", "type": "compute", "id": "load_balancer" },
+        { "label": "Serverless Function", "type": "compute", "id": "lambda" },
+        { "label": "Worker", "type": "compute", "id": "worker" }
+      ]
+    },
+    {
+      "category": "Storage",
+      "components": [
+        { "label": "SQL DB", "type": "storage", "id": "sql_db" },
+        { "label": "NoSQL DB", "type": "storage", "id": "nosql_db" },
+        { "label": "Blob Storage", "type": "storage", "id": "blob_storage" },
+        { "label": "File System", "type": "storage", "id": "file_system" }
+      ]
+    },
+    {
+      "category": "Caching",
+      "components": [
+        { "label": "Redis", "type": "cache", "id": "redis" },
+        { "label": "CDN Cache", "type": "cache", "id": "cdn_cache" }
+      ]
+    },
+    {
+      "category": "Messaging",
+      "components": [
+        { "label": "Kafka", "type": "messaging", "id": "kafka" },
+        { "label": "Queue", "type": "messaging", "id": "queue" },
+        { "label": "Pub/Sub", "type": "messaging", "id": "pubsub" }
+      ]
+    },
+    {
+      "category": "Security",
+      "components": [
+        { "label": "Auth Service", "type": "security", "id": "auth_service" },
+        { "label": "Token Validator", "type": "security", "id": "token_validator" },
+        { "label": "Secrets Manager", "type": "security", "id": "secrets_manager" }
+      ]
+    },
+    {
+      "category": "Observability",
+      "components": [
+        { "label": "Monitoring", "type": "observability", "id": "monitoring" },
+        { "label": "Logging", "type": "observability", "id": "logging" },
+        { "label": "Tracing", "type": "observability", "id": "tracing" },
+        { "label": "Dashboard", "type": "observability", "id": "dashboard" }
+      ]
+    },
+    {
+      "category": "Data & Analytics",
+      "components": [
+        { "label": "ETL Job", "type": "data", "id": "etl_job" },
+        { "label": "Analytics Engine", "type": "data", "id": "analytics_engine" },
+        { "label": "ML Endpoint", "type": "data", "id": "ml_endpoint" }
+      ]
+    },
+    {
+      "category": "DevOps / CI-CD",
+      "components": [
+        { "label": "Git Repo", "type": "devops", "id": "git_repo" },
+        { "label": "Build System", "type": "devops", "id": "build_system" },
+        { "label": "Pipeline", "type": "devops", "id": "pipeline" }
+      ]
+    },
+    {
+      "category": "Network",
+      "components": [
+        { "label": "CDN", "type": "network", "id": "cdn" },
+        { "label": "DNS", "type": "network", "id": "dns" },
+        { "label": "Firewall", "type": "network", "id": "firewall" },
+        { "label": "VPC", "type": "network", "id": "vpc" }
+      ]
+    },
+    {
+      "category": "Utilities",
+      "components": [
+        { "label": "Feature Flag", "type": "utility", "id": "feature_flag" },
+        { "label": "Rate Limiter", "type": "utility", "id": "rate_limiter" },
+        { "label": "Config Service", "type": "utility", "id": "config_service" },
+        { "label": "Comment Node", "type": "utility", "id": "comment_node" },
+        { "label": "Group Box", "type": "utility", "id": "group_box" }
+      ]
+    }
+  ]
+}

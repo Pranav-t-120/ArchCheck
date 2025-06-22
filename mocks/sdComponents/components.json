@@ -2,51 +2,568 @@
   {
     "name": "Load Balancer",
     "description": "Distributes network or application traffic across multiple servers to ensure reliability and performance.",
-    "icon": "🌀"
+    "icon": "🌀",
+    "id": "load-balancer",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "Load Balancer Type",
+        "options": [
+          { "label": "Round Robin", "value": "round-robin" },
+          { "label": "Least Connections", "value": "least-connections" },
+          { "label": "IP Hash", "value": "ip-hash" }
+        ]
+      },
+      "healthCheck": {
+        "label": "Health Check Interval",
+        "fieldType": "toggle",
+        "defaultValue": true
+      },
+      "stickySessions": {
+        "fieldType": "toggle",
+        "label": "Enable Sticky Sessions",
+        "defaultValue": false
+      }
+    }
+  },
+  {
+    "name": "Client",
+    "description": "Represents the end-user application or device that interacts with the system, such as a web browser or mobile app.",
+    "icon": "📱",
+    "id": "client",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "Client Type",
+        "options": [
+          { "label": "React", "value": "react" },
+          { "label": "Angular", "value": "angular" },
+          { "label": "Vue", "value": "vue" }
+        ]
+      },
+      "authType": {
+        "fieldType": "select",
+        "label": "Authentication Type",
+        "options": [
+          { "label": "OAuth", "value": "oauth" },
+          { "label": "JWT", "value": "jwt" },
+          { "label": "SAML", "value": "saml" },
+          { "label": "None", "value": "none" }
+        ]
+      },
+      "cdnEnabled": {
+        "fieldType": "toggle",
+        "label": "Enable CDN",
+        "defaultValue": true
+      },
+      "requestRateLimit": {
+        "fieldType": "number",
+        "label": "Request Rate Limit",
+        "defaultValue": 1000,
+        "unit": "requests per minute"
+      }
+    }
   },
   {
     "name": "Web Server",
     "description": "Handles HTTP requests and serves static or dynamic content to users.",
-    "icon": "🌐"
+    "icon": "🌐",
+    "id": "web-server"
   },
   {
     "name": "Application Server",
     "description": "Hosts and executes business logic, typically serving client requests from the web server.",
-    "icon": "⚙️"
+    "icon": "⚙️",
+    "id": "application-server"
   },
   {
     "name": "Database",
     "description": "Stores structured data and supports efficient querying, indexing, and transactions.",
-    "icon": "🗄️"
+    "icon": "🗄️",
+    "id": "database",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "Database Type",
+        "options": [
+          { "label": "SQL", "value": "sql" },
+          { "label": "NoSQL", "value": "nosql" },
+          { "label": "In-Memory", "value": "in-memory" },
+          {"label": "PostgreSQL", "value": "postgresql"},
+          {"label": "MySQL", "value": "mysql"},
+          {"label": "MongoDB", "value": "mongodb"},
+          {"label": "Redis", "value": "redis"}
+        ]
+      },
+      "replication": {
+        "fieldType": "select",
+        "label": "Replication Strategy",
+        "options": [
+          { "label": "Master-Slave", "value": "master-slave" },
+          { "label": "Multi-Master", "value": "multi-master" },
+          { "label": "Multi-Region", "value": "multi-region" }
+        ]
+      },
+      "sharding": {
+        "fieldType": "toggle",
+        "label": "Enable Sharding",
+        "defaultValue": false
+      },
+      "readReplicas": {
+        "fieldType": "number",
+        "label": "Number of Read Replicas",
+        "defaultValue": 1
+      },
+      "backup": {
+        "fieldType": "number",
+        "label": "Backup Frequency",
+        "defaultValue": 7,
+        "unit": "days"
+      }
+    }
   },
   {
-    "name": "Redis",
-    "description": "An in-memory key-value store used for caching, real-time analytics, and message brokering.",
-    "icon": "🟥"
+    "name": "Microservices",
+    "description": "Small, independent services that communicate over APIs, allowing for modular development and deployment.",
+    "icon": "⚙️",
+    "id": "microservices",
+    "config": {
+      "language": {
+        "fieldType": "select",
+        "label": "Programming Language",
+        "options": [
+          { "label": "Node.js", "value": "nodejs" },
+          { "label": "Python", "value": "python" },
+          { "label": "Java", "value": "java" },
+          { "label": "Go", "value": "go" },
+          { "label": "Ruby", "value": "ruby" },
+          { "label": "C#", "value": "csharp" }
+        ]
+      },
+      "framework": {
+        "fieldType": "select",
+        "label": "Framework",
+        "options": [
+          { "label": "Express", "value": "express" },
+          { "label": "Django", "value": "django" },
+          { "label": "Spring Boot", "value": "spring-boot" },
+          { "label": "Flask", "value": "flask" },
+          { "label": "FastAPI", "value": "fastapi" },
+          { "label": ".NET", "value": "dotnet" }
+        ]
+      },
+      "replicas": {
+        "fieldType": "number",
+        "label": "Number of Replicas",
+        "defaultValue": 3
+      },
+      "autoScaling": {
+        "fieldType": "toggle",
+        "label": "Enable Auto Scaling",
+        "defaultValue": true
+      },
+      "maxCPU": {
+        "fieldType": "number",
+        "label": "Max CPU",
+        "defaultValue": 500,
+        "unit": "m"
+      },
+      "maxMemory": {
+        "fieldType": "number",
+        "label": "Max Memory",
+        "defaultValue": 512,
+        "unit": "MB"
+      }
+    }
+  },
+  {
+    "name": "Cache",
+    "description": "Improves performance by storing frequently accessed data in memory, reducing database load and latency.",
+    "icon": "🟥",
+    "id": "cache",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "Cache Type",
+        "options": [
+          { "label": "Redis", "value": "redis" },
+          { "label": "Memcached", "value": "memcached" },
+          { "label": "In-Memory", "value": "in-memory" }
+        ]
+      },
+      "ttl": {
+        "fieldType": "number",
+        "label": "Time to Live",
+        "defaultValue": 300,
+        "unit": "seconds"
+      },
+      "evictionPolicy": {
+        "fieldType": "select",
+        "label": "Eviction Policy",
+        "options": [
+          { "label": "LRU", "value": "lru" },
+          { "label": "LFU", "value": "lfu" },
+          { "label": "FIFO", "value": "fifo" }
+        ]
+      },
+      "maxSize": {
+        "fieldType": "number",
+        "label": "Maximum Cache Size",
+        "defaultValue": 1024,
+        "unit": "MB"
+      }
+    }
   },
   {
     "name": "Message Queue",
     "description": "Decouples services and enables asynchronous communication between components.",
-    "icon": "📬"
+    "icon": "📬",
+    "id": "message-queue",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "Message Queue Type",
+        "options": [
+          { "label": "RabbitMQ", "value": "rabbitmq" },
+          { "label": "Kafka", "value": "kafka" },
+          { "label": "AWS SQS", "value": "aws-sqs" },
+          { "label": "Azure Service Bus", "value": "azure-service-bus" }
+        ]
+      },
+      "ackStrategy": {
+        "fieldType": "select",
+        "label": "Acknowledgment Strategy",
+        "options": [
+          { "label": "At-least once", "value": "atLeastOnce" },
+          { "label": "Exactly once", "value": "exactlyOnce" },
+          { "label": "At-most once", "value": "atMostOnce" }
+        ]
+      },
+      "retentionPeriod": {
+        "fieldType": "number",
+        "label": "Message Retention Period",
+        "defaultValue": 7,
+        "unit": "days"
+      },
+      "partitions": {
+        "fieldType": "number",
+        "label": "Number of Partitions",
+        "defaultValue": 3
+      },
+      "durability": {
+        "fieldType": "toggle",
+        "label": "Enable Durability",
+        "defaultValue": true
+      },
+      "maxRetries": {
+        "fieldType": "number",
+        "label": "Max Retries",
+        "defaultValue": 5
+      },
+      "visibilityTimeout": {
+        "fieldType": "number",
+        "label": "Visibility Timeout",
+        "defaultValue": 30,
+        "unit": "seconds"
+      }
+    }
   },
   {
     "name": "CDN",
     "description": "Delivers static content (like images, JS, CSS) from servers close to the user’s location to reduce latency.",
-    "icon": "📡"
+    "icon": "📡",
+    "id": "cdn",
+    "config":{
+      "provider": {
+        "fieldType": "select",
+        "label": "CDN Provider",
+        "options": [
+          { "label": "Cloudflare", "value": "cloudflare" },
+          { "label": "AWS CloudFront", "value": "aws-cloudfront" },
+          { "label": "Akamai", "value": "akamai" },
+          { "label": "Fastly", "value": "fastly" }
+        ]
+      },
+      "ttl": {
+        "fieldType": "number",
+        "label": "Time to Live",
+        "defaultValue": 3600,
+        "unit": "seconds"
+      },
+      "geoReplication": {
+        "fieldType": "toggle",
+        "label": "Enable Geo-Replication",
+        "defaultValue": true
+      },
+      "httpsEnforcement": {
+        "fieldType": "toggle",
+        "label": "Enable HTTPS Enforcement",
+        "defaultValue": true
+      }
+    }
   },
   {
     "name": "API Gateway",
     "description": "Acts as a single entry point for API calls, handling routing, rate limiting, and security.",
-    "icon": "🚪"
+    "icon": "🚪",
+    "id": "api-gateway",
+    "config":{
+      "type": {
+        "fieldType": "select",
+        "label": "API Gateway Type",
+        "options": [
+          { "label": "REST", "value": "rest" },
+          { "label": "GraphQL", "value": "graphql" },
+          { "label": "gRPC", "value": "grpc" },
+          { "label": "WebSocket", "value": "websocket" }
+        ]
+      },
+      "auth": {
+        "fieldType": "select",
+        "label": "Authentication Method",
+        "options": [
+          { "label": "API Key", "value": "api-key" },
+          { "label": "OAuth2", "value": "oauth2" },
+          { "label": "JWT", "value": "jwt" },
+          { "label": "None", "value": "none" }
+        ]
+      },
+      "rateLimit": {
+        "fieldType": "number",
+        "label": "Rate Limit",
+        "defaultValue": 1000,
+        "unit": "requests per minute"
+      },
+      "caching": {
+        "fieldType": "toggle",
+        "label": "Enable Caching",
+        "defaultValue": true
+      }
+    }
+  },
+  {
+    "name": "Object Storage",
+    "description": "Stores large amounts of unstructured data, such as files, images, and backups, with high durability and availability.",
+    "icon": "🗄️",
+    "id": "object-storage",
+    "config": {
+      "provider": {
+        "fieldType": "select",
+        "label": "Storage Provider",
+        "options": [
+          { "label": "AWS S3", "value": "aws-s3" },
+          { "label": "Google Cloud Storage", "value": "google-cloud-storage" },
+          { "label": "Azure Blob Storage", "value": "azure-blob-storage" },
+          { "label": "DigitalOcean Spaces", "value": "digitalocean-spaces" }
+        ]
+      },
+      "publicAccess": {
+        "fieldType": "toggle",
+        "label": "Public Access Enabled",
+        "defaultValue": false
+      },
+      "lifeCyclePolicy":{
+        "fieldType": "textarea",
+        "label": "Lifecycle Policy",
+        "defaultValue": "Transition to cold storage after 30 days, delete after 365 days"
+      },
+      "versioning": {
+        "fieldType": "toggle",
+        "label": "Enable Versioning",
+        "defaultValue": true
+      }
+    }
   },
   {
     "name": "Authentication Service",
     "description": "Manages user identities and permissions, often via tokens or OAuth flows.",
-    "icon": "🔐"
+    "icon": "🔐",
+    "id": "authentication-service",
+    "config": {
+      "authMethod": {
+        "fieldType": "select",
+        "label": "Authentication Method",
+        "options": [
+          { "label": "OAuth2", "value": "oauth2" },
+          { "label": "OpenID Connect", "value": "openid-connect" },
+          { "label": "SAML", "value": "saml" },
+          { "label": "LDAP", "value": "ldap" },
+          {"label": "SSO", "value": "sso"},
+          {"label": "Custom", "value": "custom"}
+        ]
+      },
+      "provider": {
+        "fieldType": "select",
+        "label": "Authentication Provider",
+        "options": [
+          { "label": "Auth0", "value": "auth0" },
+          { "label": "Firebase Auth", "value": "firebase-auth" },
+          { "label": "AWS Cognito", "value": "aws-cognito" },
+          { "label": "Azure AD B2C", "value": "azure-ad-b2c" }
+        ]
+      },
+      "sessionTTL": {
+        "fieldType": "number",
+        "label": "Session Time to Live",
+        "unit": "seconds"
+      },
+      "multiFactorAuth": {
+        "fieldType": "toggle",
+        "label": "Enable Multi-Factor Authentication",
+        "defaultValue": false
+      }
+    }
+  },{
+    "name": "Service Discovery",
+    "description": "Automatically detects and manages service instances in a microservices architecture, enabling dynamic routing and load balancing.",
+    "icon": "🔍",
+    "id": "service-discovery",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "Service Discovery Type",
+        "options": [
+          { "label": "Consul", "value": "consul" },
+          { "label": "Eureka", "value": "eureka" },
+          { "label": "Zookeeper", "value": "zookeeper" },
+          { "label": "Kubernetes DNS", "value": "kubernetes-dns" }
+        ]
+      },
+      "healthCheckInterval": {
+        "fieldType": "number",
+        "label": "Health Check Interval",
+        "defaultValue": 30,
+        "unit": "seconds"
+      },
+      "autoRegistration": {
+        "fieldType": "toggle",
+        "label": "Enable Auto Registration",
+        "defaultValue": true
+      }
+    }
   },
   {
     "name": "Monitoring & Logging",
     "description": "Tracks application performance and logs system behavior for debugging and analysis.",
-    "icon": "📈"
+    "icon": "📈",
+    "id": "monitoring-logging",
+    "config":{
+      "type": {
+        "fieldType": "select",
+        "label": "Monitoring Tool",
+        "options": [
+          { "label": "Prometheus", "value": "prometheus" },
+          { "label": "Grafana", "value": "grafana" },
+          { "label": "ELK Stack", "value": "elk-stack" },
+          { "label": "Datadog", "value": "datadog" },
+          { "label": "New Relic", "value": "new-relic" }
+        ]
+      },
+      "logRetention": {
+        "fieldType": "number",
+        "label": "Log Retention Period",
+        "defaultValue": 30,
+        "unit": "days"
+      },
+      "alerting": {
+        "fieldType": "toggle",
+        "label": "Enable Alerting",
+        "defaultValue": true
+      }
+    }
+  },
+  {
+    "name": "CI/CD Pipeline",
+    "description": "Automates the process of code integration, testing, and deployment to ensure rapid and reliable software delivery.",
+    "icon": "🔄",
+    "id": "ci-cd-pipeline",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "CI/CD Tool",
+        "options": [
+          { "label": "Jenkins", "value": "jenkins" },
+          { "label": "GitHub Actions", "value": "github-actions" },
+          { "label": "GitLab CI", "value": "gitlab-ci" },
+          { "label": "CircleCI", "value": "circleci" }
+        ]
+      },
+      "buildTimeout": {
+        "fieldType": "number",
+        "label": "Build Timeout",
+        "defaultValue": 60,
+        "unit": "minutes"
+      },
+      "trigger": {
+        "fieldType": "select",
+        "label": "Pipeline Trigger",
+        "options": [
+          { "label": "On Push", "value": "on-push" },
+          { "label": "On Pull Request", "value": "on-pull-request" },
+          { "label": "Scheduled", "value": "scheduled" }
+        ]
+      },
+      "environment": {
+        "fieldType": "select",
+        "label": "Deployment Environment",
+        "options": [
+          { "label": "Development", "value": "development" },
+          { "label": "Staging", "value": "staging" },
+          { "label": "Production", "value": "production" }
+        ]
+      },
+      "testCoverage": {
+        "fieldType": "number",
+        "label": "Minimum Test Coverage",
+        "defaultValue": 80,
+        "unit": "%"
+      },
+      "autoDeploy": {
+        "fieldType": "toggle",
+        "label": "Enable Auto Deployment",
+        "defaultValue": true
+      }
+    }
+  },
+  {
+    "name": "Security (Firewall/ WAF)",
+    "description": "Protects applications from malicious traffic and attacks by filtering and monitoring HTTP requests.",
+    "icon": "🛡️",
+    "id": "security-firewall-waf",
+    "config": {
+      "type": {
+        "fieldType": "select",
+        "label": "WAF Type",
+        "options": [
+          { "label": "AWS WAF", "value": "aws-waf" },
+          { "label": "Azure WAF", "value": "azure-waf" },
+          { "label": "Cloudflare WAF", "value": "cloudflare-waf" },
+          { "label": "ModSecurity", "value": "modsecurity" }
+        ]
+      },
+      "ruleset": {
+        "fieldType": "select",
+        "label": "Ruleset",
+        "options": [
+          { "label": "OWASP Core Rule Set", "value": "owasp-crs" },
+          { "label": "Custom Rules", "value": "custom-rules" }
+        ]
+      },
+      "loggingEnabled": {
+        "fieldType": "toggle",
+        "label": "Enable Logging",
+        "defaultValue": true
+      },
+      "rateLimitingEnabled": {
+        "fieldType": "toggle",
+        "label": "Enable Rate Limiting",
+        "defaultValue": true
+      },
+      "ipBlockListEnabled": {
+        "fieldType": "toggle",
+        "label": "Enable IP Block List",
+        "defaultValue": false
+      }
+    }
   }
 ]

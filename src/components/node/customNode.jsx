@@ -1,41 +1,41 @@
+import React from "react";
+import SvgProvider from "../svg/svgProvider";
+import { Handle } from "@xyflow/react";
+import { useDispatch } from "react-redux";
+import {selectedNode} from "../../redux/slices/selectedNode";
+
+
+
 const CustomNode = ({ data, id, selected }) => {
+
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.stopPropagation(); // Prevent the click from propagating to the parent
+    // Dispatch an action or perform any other logic you need when the node is clicked
+    dispatch(selectedNode(data.component));
+  };
+
   return (
-    <div
-      className={`bg-[#F8F4EC] border border-[#D8CAB8] rounded-lg p-4 shadow-lg w-52 ${selected ? 'ring-2 ring-[#E4D8B4]' : ''}`}
-    >
+    <div className="p-2 z-7" onClick={handleClick}>
       {/* Header with SVG Icon and Label */}
-      <div className="flex items-center gap-2">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="text-[#F9E1D4]"
-        >
-          <path d="M12 2L2 7l2 1 8-5 8 5 2-1zM4 10v12h16V10l-8 5-8-5z" />
-        </svg>
-        <span className="text-[#3C3C3C] font-semibold text-sm">{data.label}</span>
-        <div className="ml-auto cursor-pointer text-[#F9E1D4] text-xl">+</div>
+      <div className="grid grid-flow-col justify-items-center">
+        <SvgProvider type={data.component.name} className="w-6 h-6" />
       </div>
 
-      {/* Node Content */}
-      <div className="mt-3 text-[#D2C6B3] text-xs">
-        <p>{data.description}</p>
+      <div
+        className="text-xs mt-2 text-center"
+        style={{ color: selected ? "#FFB347" : "#5B4636" }}
+      >
+        {data.component.name}
       </div>
+      {/* create transparent handles for connections */}
 
-      {/* Config Options */}
-      {data.configs && (
-        <div className="mt-3 text-[#E4D8B4] text-xs">
-          <ul className="list-none pl-0">
-            {data.configs.map((config, index) => (
-              <li key={index} className="mb-1">
-                <span>{config.key}: {config.value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <Handle type="source" position="right" id="right-handle" className="opacity-15 p-1" />
+      <Handle type="target" position="left" id="left-handle" className="opacity-15 p-1" />
+      
     </div>
   );
 };
+
+export default CustomNode;

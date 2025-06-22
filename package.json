@@ -11,12 +11,17 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.10",
-    "@tailwindcss/vite": "^4.1.6",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@shopify/draggable": "^1.1.4",
     "@xyflow/react": "^12.6.1",
     "react": "^19.1.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
-    "react-scrollbars-custom": "^4.1.1"
+    "react-redux": "^9.2.0",
+    "react-scrollbars-custom": "^4.1.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -28,8 +33,9 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "msw": "^2.8.2",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.6",
+    "tailwindcss": "^3.4.17",
     "vite": "^6.3.5",
     "vite-plugin-svgr": "^4.3.0"
   }
